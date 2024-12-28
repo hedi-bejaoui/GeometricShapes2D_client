@@ -39,3 +39,30 @@ string Groupe::toString() const {
     oss << "], color: " << color;
     return oss.str();
 }
+
+void Groupe::translate(const Vecteur2D& translationVector) {
+    for (auto& forme : formes) {
+        forme->translate(translationVector);
+    }
+}
+
+void Groupe::homothetie(const Vecteur2D& center, double scale) {
+    for (auto& forme : formes) {
+        forme->homothetie(center, scale);
+    }
+}
+
+void Groupe::rotate(const Vecteur2D& center, double angle) {
+    for (auto& forme : formes) {
+        forme->rotate(center, angle);
+    }
+}
+
+
+void Groupe::save(std::ostream& out) const {
+    out << "GROUP " << color << " [\n";
+    for (const auto& forme : formes) {
+        forme->save(out); // Delegate saving to child shapes
+    }
+    out << "]\n";
+}

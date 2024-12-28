@@ -4,13 +4,17 @@
 
 #include <iostream>
 #include <memory>
-#include "Vecteur2D.h"
-#include "Forme.h"
+#include <cmath>
 #include "Segment.h"
 #include "Cercle.h"
 #include "Triangle.h"
 #include "Polygone.h"
 #include "Groupe.h"
+#include "Translation.h"
+#include "Homothetie.h"
+#include "Rotation.h"
+#include <fstream>
+#include "ShapeFactory.h"
 
 using namespace std;
 
@@ -87,6 +91,9 @@ void testInvalidPolygons() {
     }
 }
 
+
+
+/*
 int main() {
     cout << "Starting geometric shapes tests..." << endl;
 
@@ -96,6 +103,231 @@ int main() {
     testInvalidPolygons();
 
     cout << "\nAll tests completed." << endl;
+
+    return 0;
+}
+*/
+
+// Helper function to compare two double values for approximate equality
+bool areEqual(double a, double b, double epsilon = 1e-6) {
+    return fabs(a - b) < epsilon;
+}
+
+void testTranslation() {
+    cout << "Testing Translation..." << endl;
+
+    // Create shapes
+    Segment segment(Vecteur2D(0, 0), Vecteur2D(1, 1), "red");
+    Cercle circle(Vecteur2D(2, 2), 1, "blue");
+    Triangle triangle(Vecteur2D(0, 0), Vecteur2D(3, 0), Vecteur2D(0, 4), "yellow");
+
+    vector<Vecteur2D> points = {Vecteur2D(0, 0), Vecteur2D(2, 0), Vecteur2D(1, 1)};
+    Polygone polygon(points, "green");
+
+    Groupe group("cyan");
+    group.addForme(make_shared<Segment>(segment));
+    group.addForme(make_shared<Cercle>(circle));
+    group.addForme(make_shared<Triangle>(triangle));
+    group.addForme(make_shared<Polygone>(polygon));
+
+    // Apply translation
+    Translation translation(Vecteur2D(2, 2));
+    translation.apply(group);
+
+    // Output results
+    cout << "Translated Group:\n" << group.toString() << endl;
+
+    // Check results
+    cout << "Translation test completed successfully!" << endl;
+}
+
+void testHomothetie() {
+    cout << "\nTesting Homothetie..." << endl;
+
+    // Create shapes
+    Segment segment(Vecteur2D(1, 1), Vecteur2D(2, 2), "red");
+    Cercle circle(Vecteur2D(3, 3), 1, "blue");
+    Triangle triangle(Vecteur2D(0, 0), Vecteur2D(4, 0), Vecteur2D(0, 3), "yellow");
+
+    vector<Vecteur2D> points = {Vecteur2D(0, 0), Vecteur2D(3, 0), Vecteur2D(1.5, 1.5)};
+    Polygone polygon(points, "green");
+
+    Groupe group("cyan");
+    group.addForme(make_shared<Segment>(segment));
+    group.addForme(make_shared<Cercle>(circle));
+    group.addForme(make_shared<Triangle>(triangle));
+    group.addForme(make_shared<Polygone>(polygon));
+
+    // Apply homothetie
+    Homothetie homothetie(Vecteur2D(1, 1), 2.0);
+    homothetie.apply(group);
+
+    // Output results
+    cout << "Scaled Group:\n" << group.toString() << endl;
+
+    // Check results
+    cout << "Homothetie test completed successfully!" << endl;
+}
+
+void testRotation() {
+    cout << "\nTesting Rotation..." << endl;
+
+    // Create shapes
+    Segment segment(Vecteur2D(1, 1), Vecteur2D(2, 2), "red");
+    Cercle circle(Vecteur2D(3, 3), 1, "blue");
+    Triangle triangle(Vecteur2D(0, 0), Vecteur2D(4, 0), Vecteur2D(0, 3), "yellow");
+
+    vector<Vecteur2D> points = {Vecteur2D(0, 0), Vecteur2D(3, 0), Vecteur2D(1.5, 1.5)};
+    Polygone polygon(points, "green");
+
+    Groupe group("cyan");
+    group.addForme(make_shared<Segment>(segment));
+    group.addForme(make_shared<Cercle>(circle));
+    group.addForme(make_shared<Triangle>(triangle));
+    group.addForme(make_shared<Polygone>(polygon));
+
+    // Apply rotation
+    Rotation rotation(Vecteur2D(1, 1), M_PI / 4); // Rotate by 45 degrees
+    rotation.apply(group);
+
+    // Output results
+    cout << "Rotated Group:\n" << group.toString() << endl;
+
+    // Check results
+    cout << "Rotation test completed successfully!" << endl;
+}
+
+void testGroupTranslation() {
+    cout << "Testing Group Translation..." << endl;
+
+    // Create shapes
+    auto segment = make_shared<Segment>(Vecteur2D(0, 0), Vecteur2D(1, 1), "red");
+    auto circle = make_shared<Cercle>(Vecteur2D(2, 2), 1, "blue");
+    auto triangle = make_shared<Triangle>(Vecteur2D(0, 0), Vecteur2D(3, 0), Vecteur2D(0, 4), "yellow");
+
+    Groupe subgroup("green");
+    subgroup.addForme(segment);
+    subgroup.addForme(circle);
+
+    Groupe mainGroup("cyan");
+    mainGroup.addForme(make_shared<Groupe>(subgroup)); // Add subgroup
+    mainGroup.addForme(triangle);
+
+    // Apply translation
+    Translation translation(Vecteur2D(2, 2));
+    translation.apply(mainGroup);
+
+    // Output results
+    cout << "Translated Main Group:\n" << mainGroup.toString() << endl;
+}
+
+void testGroupHomothetie() {
+    cout << "\nTesting Group Homothetie..." << endl;
+
+    // Create shapes
+    auto segment = make_shared<Segment>(Vecteur2D(1, 1), Vecteur2D(2, 2), "red");
+    auto circle = make_shared<Cercle>(Vecteur2D(3, 3), 1, "blue");
+    auto triangle = make_shared<Triangle>(Vecteur2D(0, 0), Vecteur2D(4, 0), Vecteur2D(0, 3), "yellow");
+
+    Groupe subgroup("green");
+    subgroup.addForme(segment);
+    subgroup.addForme(circle);
+
+    Groupe mainGroup("cyan");
+    mainGroup.addForme(make_shared<Groupe>(subgroup)); // Add subgroup
+    mainGroup.addForme(triangle);
+
+    // Apply homothetie
+    Homothetie homothetie(Vecteur2D(1, 1), 2.0);
+    homothetie.apply(mainGroup);
+
+    // Output results
+    cout << "Scaled Main Group:\n" << mainGroup.toString() << endl;
+}
+
+void testGroupRotation() {
+    cout << "\nTesting Group Rotation..." << endl;
+
+    // Create shapes
+    auto segment = make_shared<Segment>(Vecteur2D(1, 1), Vecteur2D(2, 2), "red");
+    auto circle = make_shared<Cercle>(Vecteur2D(3, 3), 1, "blue");
+    auto triangle = make_shared<Triangle>(Vecteur2D(0, 0), Vecteur2D(4, 0), Vecteur2D(0, 3), "yellow");
+
+    Groupe subgroup("green");
+    subgroup.addForme(segment);
+    subgroup.addForme(circle);
+
+    Groupe mainGroup("cyan");
+    mainGroup.addForme(make_shared<Groupe>(subgroup)); // Add subgroup
+    mainGroup.addForme(triangle);
+
+    // Apply rotation
+    Rotation rotation(Vecteur2D(1, 1), M_PI / 4); // Rotate by 45 degrees
+    rotation.apply(mainGroup);
+
+    // Output results
+    cout << "Rotated Main Group:\n" << mainGroup.toString() << endl;
+}
+
+
+/*
+int main() {
+    cout << "Starting geometric transformations tests on groups..." << endl;
+
+    testGroupTranslation();
+    testGroupHomothetie();
+    testGroupRotation();
+
+    cout << "\nAll group tests completed successfully!" << endl;
+    return 0;
+}
+*/
+
+/*int main() {
+    try {
+        // Create and draw shapes
+        Cercle circle(Vecteur2D(100, 100), 50, "red"); // Red circle
+        circle.draw();
+
+        Segment segment(Vecteur2D(200, 200), Vecteur2D(300, 300), "green"); // Green segment
+        segment.draw();
+
+        Triangle triangle(Vecteur2D(400, 400), Vecteur2D(450, 500), Vecteur2D(350, 450), "blue"); // Blue triangle
+        triangle.draw();
+
+        std::vector<Vecteur2D> points = {Vecteur2D(500, 500), Vecteur2D(550, 550), Vecteur2D(600, 500), Vecteur2D(550, 450)};
+        Polygone polygon(points, "yellow"); // Yellow polygon
+        polygon.draw();
+
+        std::cout << "All shapes drawn successfully." << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+    return 0;
+}*/
+
+int main() {
+    // Create shapes
+    auto circle = std::make_shared<Cercle>(Vecteur2D(100, 100), 50, "red");
+    auto segment = std::make_shared<Segment>(Vecteur2D(200, 200), Vecteur2D(300, 300), "green");
+
+    // Create a group
+    Groupe group("cyan");
+    group.addForme(circle);
+    group.addForme(segment);
+
+    // Save shapes to file
+    std::ofstream outFile("shapes.txt");
+    group.save(outFile);
+    outFile.close();
+
+    // Load shapes from file
+    std::ifstream inFile("shapes.txt");
+    auto loadedGroup = ShapeFactory::load(inFile);
+    inFile.close();
+
+    // Display loaded shapes
+    std::cout << loadedGroup->toString() << std::endl;
 
     return 0;
 }

@@ -4,6 +4,7 @@
 
 #include "Forme.h"
 #include "Vecteur2D.h"
+#include "Transformation.h"
 
 Forme::Forme(const string& color) : color(Vecteur2D::validateColor(color)), parentGroup(nullptr) {}
 Forme::~Forme() {}
