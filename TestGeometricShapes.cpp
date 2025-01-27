@@ -15,9 +15,10 @@
 #include "Rotation.h"
 #include <fstream>
 #include "ShapeFactory.h"
+#include "VisteurDessinerJAVA.h"
 
 using namespace std;
-
+/*
 void testColorValidation() {
     cout << "Testing color validation..." << endl;
 
@@ -90,7 +91,7 @@ void testInvalidPolygons() {
         cout << "Caught expected exception: " << e.what() << endl;
     }
 }
-
+*/
 
 
 /*
@@ -107,7 +108,7 @@ int main() {
     return 0;
 }
 */
-
+/*
 // Helper function to compare two double values for approximate equality
 bool areEqual(double a, double b, double epsilon = 1e-6) {
     return fabs(a - b) < epsilon;
@@ -268,7 +269,7 @@ void testGroupRotation() {
     // Output results
     cout << "Rotated Main Group:\n" << mainGroup.toString() << endl;
 }
-
+*/
 
 /*
 int main() {
@@ -283,30 +284,31 @@ int main() {
 }
 */
 
-/*int main() {
+int main() {
     try {
+        VisiteurDessinerJAVA visiteur;
         // Create and draw shapes
         Cercle circle(Vecteur2D(100, 100), 50, "red"); // Red circle
-        circle.draw();
+        circle.draw(&visiteur);
 
-        Segment segment(Vecteur2D(200, 200), Vecteur2D(300, 300), "green"); // Green segment
-        segment.draw();
+       Segment segment(Vecteur2D(200, 200), Vecteur2D(300, 300), "green"); // Green segment
+        segment.draw(&visiteur);
 
         Triangle triangle(Vecteur2D(400, 400), Vecteur2D(450, 500), Vecteur2D(350, 450), "blue"); // Blue triangle
-        triangle.draw();
+        triangle.draw(&visiteur);
 
         std::vector<Vecteur2D> points = {Vecteur2D(500, 500), Vecteur2D(550, 550), Vecteur2D(600, 500), Vecteur2D(550, 450)};
         Polygone polygon(points, "yellow"); // Yellow polygon
-        polygon.draw();
+        polygon.draw(&visiteur);
 
         std::cout << "All shapes drawn successfully." << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
     return 0;
-}*/
+}
 
-int main() {
+/*int main() {
     // Create shapes
     auto circle = std::make_shared<Cercle>(Vecteur2D(100, 100), 50, "red");
     auto segment = std::make_shared<Segment>(Vecteur2D(200, 200), Vecteur2D(300, 300), "green");
@@ -330,4 +332,4 @@ int main() {
     std::cout << loadedGroup->toString() << std::endl;
 
     return 0;
-}
+}*/

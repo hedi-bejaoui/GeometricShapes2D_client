@@ -16,10 +16,8 @@ void Groupe::addForme(const shared_ptr<Forme>& forme) {
     formes.push_back(forme);
 }
 
-void Groupe::draw() const {
-    for (const auto& forme : formes) {
-        forme->draw();
-    }
+vector<shared_ptr<Forme>> Groupe::getFormes() const{
+    return formes;
 }
 
 double Groupe::calculateArea() const {
@@ -66,3 +64,12 @@ void Groupe::save(std::ostream& out) const {
     }
     out << "]\n";
 }
+
+
+
+
+/*void Groupe::draw() const {
+    for (const auto& forme : formes) {
+        forme->draw();
+    }
+}*/

@@ -25,7 +25,9 @@ add_executable(GeometricShapes2D
         Rotation.cpp
         TCPClient.h
         WinsockSingleton.h
-        ShapeFactory.h)
+        ShapeFactory.h
+        Visteur.h
+        VisteurDessinerJAVA.h)
 
 # Link Winsock library
 target_link_libraries(GeometricShapes2D PRIVATE ws2_32)

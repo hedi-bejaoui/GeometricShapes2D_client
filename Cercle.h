@@ -8,12 +8,14 @@
 #include "Forme.h"
 #include "Vecteur2D.h"
 
+//class Visiteur;
+
 /** Cercle class */
 class Cercle : public Forme {
+public:
     Vecteur2D center;
     double radius;
 
-public:
     Cercle(const Vecteur2D& center, double radius, const string& color = "black");
 
     void translate(const Vecteur2D& translationVector) override;
@@ -22,10 +24,20 @@ public:
 
     void save(std::ostream &out) const override;
 
-    void draw() const override;
+
+
+    void draw(const Visiteur *v) const override {
+        v->visit(*this);
+    }
+
+
+
+
     double calculateArea() const override;
     string toString() const override;
 };
+
+#include "Visteur.h"
 
 #endif // CERCLE_H
 

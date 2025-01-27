@@ -8,6 +8,9 @@
 #include "Forme.h"
 #include <vector>
 #include <memory>
+#include "Visteur.h"
+
+
 
 /** Groupe class */
 class Groupe : public Forme {
@@ -15,6 +18,8 @@ class Groupe : public Forme {
 
 public:
     Groupe(const string& color = "black");
+
+    vector<shared_ptr<Forme>> getFormes()const;
 
     void addForme(const shared_ptr<Forme>& forme);
 
@@ -24,9 +29,13 @@ public:
 
     void save(std::ostream &out) const override;
 
-    void draw() const override;
     double calculateArea() const override;
     string toString() const override;
+
+
+    void draw(const Visiteur *v) const override {
+        v->visit(*this);
+    }
 };
 
 #endif // GROUPE_H

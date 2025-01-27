@@ -4,6 +4,8 @@
 #include <string>
 #include <Transformation.h>
 #include <Vecteur2D.h>
+
+#include "Visteur.h"
 using namespace std;
 
 class Groupe; // Forward declaration of Groupe
@@ -20,7 +22,7 @@ public:
     explicit Forme(const string& color = "black");
     virtual ~Forme();
 
-    virtual void draw() const = 0;
+
     virtual double calculateArea() const = 0;
     virtual string toString() const = 0;
 
@@ -36,6 +38,8 @@ public:
     virtual void accept(const Transformation& transformation) {
         transformation.apply(*this);
     }
+
+    virtual void draw(const Visiteur *v) const = 0;
 
     virtual void save(std::ostream& out) const = 0; // Polymorphic save method
 };

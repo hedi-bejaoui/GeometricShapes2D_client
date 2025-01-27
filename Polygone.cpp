@@ -14,7 +14,7 @@ Polygone::Polygone(const vector<Vecteur2D>& points, const string& color)
         throw invalid_argument("A polygon must have at least three points.");
 }
 
-void Polygone::draw() const {
+/*void Polygone::draw() const {
     TCPClient client;
     client.connect("127.0.0.1", 8080);
 
@@ -27,7 +27,7 @@ void Polygone::draw() const {
     client.send(request.str());
 
     client.disconnect();
-}
+}*/
 
 double Polygone::calculateArea() const {
     double area = 0;

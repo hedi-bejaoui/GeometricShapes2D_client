@@ -9,12 +9,21 @@
 #include "Vecteur2D.h"
 #include <vector>
 
+
 /** Polygone class */
 class Polygone : public Forme {
+
     vector<Vecteur2D> points;
 
 public:
+
     Polygone(const vector<Vecteur2D>& points, const string& color = "black");
+
+
+    const std::vector<Vecteur2D>& getPoints() const {
+        return points;
+    }
+
 
     void translate(const Vecteur2D& translationVector) override;
     void homothetie(const Vecteur2D& center, double scale) override;
@@ -22,7 +31,11 @@ public:
 
     void save(std::ostream &out) const override;
 
-    void draw() const override;
+    void draw(const Visiteur *v) const override {
+        v->visit(*this);
+    }
+
+
     double calculateArea() const override;
     string toString() const override;
 };

@@ -14,6 +14,11 @@ class Triangle : public Forme {
 
 public:
     Triangle(const Vecteur2D& p1, const Vecteur2D& p2, const Vecteur2D& p3, const string& color = "black");
+    Triangle(const Triangle& tri);
+
+    Vecteur2D getP1() const;
+    Vecteur2D getP2() const;
+    Vecteur2D getP3() const;
 
     void translate(const Vecteur2D& translationVector) override;
     void homothetie(const Vecteur2D& center, double scale) override;
@@ -21,9 +26,13 @@ public:
 
     void save(std::ostream &out) const override;
 
-    void draw() const override;
+
     double calculateArea() const override;
     string toString() const override;
+
+    void draw(const Visiteur *v) const override {
+        v->visit(*this);
+    }
 };
 
 #endif // TRIANGLE_H

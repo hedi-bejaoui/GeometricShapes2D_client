@@ -14,7 +14,11 @@ Cercle::Cercle(const Vecteur2D& center, double radius, const string& color)
         throw invalid_argument("Radius must be positive.");
 }
 
-void Cercle::draw() const {
+
+
+
+
+/*void Cercle::draw() const {
     TCPClient client;
     client.connect("127.0.0.1", 8080);
 
@@ -23,7 +27,7 @@ void Cercle::draw() const {
     client.send(request.str());
 
     client.disconnect();
-}
+}*/
 
 double Cercle::calculateArea() const {
     return M_PI * radius * radius;

@@ -9,7 +9,15 @@
 Segment::Segment(const Vecteur2D& p1, const Vecteur2D& p2, const string& color)
     : Forme(color), p1(p1), p2(p2) {}
 
-void Segment::draw() const {
+
+Vecteur2D Segment::getP1() const {
+    return this->p1;
+}
+Vecteur2D Segment::getP2()const {
+    return this->p2;
+}
+
+/*void Segment::draw() const {
     TCPClient client;
     client.connect("127.0.0.1", 8080);
 
@@ -18,7 +26,7 @@ void Segment::draw() const {
     client.send(request.str());
 
     client.disconnect();
-}
+}*/
 
 double Segment::calculateArea() const {
     return 0; // A segment has no area
