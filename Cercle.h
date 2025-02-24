@@ -8,9 +8,7 @@
 #include "Forme.h"
 #include "Vecteur2D.h"
 
-//class Visiteur;
 
-/** Cercle class */
 class Cercle : public Forme {
 public:
     Vecteur2D center;

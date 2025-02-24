@@ -14,6 +14,8 @@
 #include "Homothetie.h"
 #include "Rotation.h"
 #include <fstream>
+
+#include "formeFactoryCOR.h"
 #include "ShapeFactory.h"
 #include "VisiteurEnregistrer.h"
 #include "VisteurDessinerJAVA.h"
@@ -285,59 +287,80 @@ int main() {
 }
 */
 
-/*
+
 // test pour sauvegarder une forme, triangle.....
 int main() {
-    try {
-        VisiteurEnregistrer visiteur;
-        Triangle triangle(Vecteur2D(400, 400), Vecteur2D(450, 500), Vecteur2D(350, 450), "blue");
-        triangle.save(&visiteur);
-        Cercle circle(Vecteur2D(100, 100), 50, "red");
-        circle.save(&visiteur);
-        Segment segment(Vecteur2D(200, 200), Vecteur2D(300, 300), "green");
-        segment.save(&visiteur);
-        std::vector<Vecteur2D> points = {Vecteur2D(500, 500), Vecteur2D(550, 550), Vecteur2D(600, 500), Vecteur2D(550, 450)};
-        Polygone polygon(points, "yellow");
-        polygon.save(&visiteur);
 
+    /*****************************************************************___Test_Sauvegarde_Lectures_fichier_txt___*********************************************************************************/
+    {
+        /**
+        * Convention d'écriture/lecture dans un fichier
+        *
+        * Pour le cercle         Cercle: center (..., ..., color: ...), radius ..., color: ...
+        * Pour un triangle       Triangle: (..., ..., color: ...), (..., ..., color: ...), (..., ..., color: ...), color: ...
+        * Pour un segment        Segment: (..., ..., color: ...) to (..., ..., color: ...), color: ...
+        * Pour un polygone       Polygone: (..., ..., color: ...) (..., ..., color: ...) (..., ..., color: ...) ......nbPoint...... , color: ...
+        */
 
+        try {
 
+            //sauvegarde de forme dans leurs fichiers respectifs ( class c ++ vers string) :
 
+            cout << "************************************************************************************************************************************" << endl;
+            VisiteurEnregistrer visiteur;
+            Triangle triangle(Vecteur2D(400, 400), Vecteur2D(450, 500), Vecteur2D(350, 450), "blue");
+            triangle.save(&visiteur);
+            Cercle circle(Vecteur2D(100, 100), 50, "red");
+            circle.save(&visiteur);
+            Segment segment(Vecteur2D(200, 200), Vecteur2D(300, 300), "green");
+            segment.save(&visiteur);
+            std::vector<Vecteur2D> points = {Vecteur2D(500, 500), Vecteur2D(550, 550), Vecteur2D(600, 500), Vecteur2D(550, 450)};
+            Polygone polygon(points, "yellow");
+            polygon.save(&visiteur);
 
+            // Lecture de forme dans des fichiers ( string vers class c ++ )
+            cout << "************************************************************************************************************************************" << endl;
+            vector<Forme*> formes = formeFactoryCOR::chargerDepuisFichier("../lecture/forme.txt");
 
-    } catch (const std::exception& e) {
-        std::cout << "c'est problématique" << std::endl;
-        std::cerr << "Error: " << e.what() << std::endl;
+            for (Forme* forme : formes) {
+                cout << "Forme chargée: " << forme->toString() << endl;
+                delete forme; // Nettoyage mémoire
+            }
+
+        } catch (const std::exception& e) {
+            std::cout << "c'est problématique" << std::endl;
+            std::cerr << "Error: " << e.what() << std::endl;
+        }
     }
-    return 0;
+    /*****************************************************************___Test_Dessin_Formes_Vers_serveur_JAVA___*********************************************************************************/
+    {
+        try {
+            cout << "************************************************************************************************************************************" << endl;
+            VisiteurDessinerJAVA visiteur;
+            // Create and draw shapes
+            Cercle circle(Vecteur2D(100, 100), 50, "red"); // Red circle
+            circle.draw(&visiteur);
+
+            Segment segment(Vecteur2D(200, 200), Vecteur2D(300, 300), "green"); // Green segment
+            segment.draw(&visiteur);
+
+            Triangle triangle(Vecteur2D(400, 400), Vecteur2D(450, 500), Vecteur2D(350, 450), "blue"); // Blue triangle
+            triangle.draw(&visiteur);
+
+            std::vector<Vecteur2D> points = {Vecteur2D(500, 600), Vecteur2D(850, 550), Vecteur2D(200, 500), Vecteur2D(550, 450)};
+            Polygone polygon(points, "black"); // Yellow polygon
+            polygon.draw(&visiteur);
+
+            std::cout << "All shapes drawn successfully." << std::endl;
+        } catch (const std::exception& e) {
+            std::cerr << "Error: " << e.what() << std::endl;
+        }
+    }
+
 }
 
-*/
 
 
-int main() {
-    try {
-        VisiteurDessinerJAVA visiteur;
-        // Create and draw shapes
-       Cercle circle(Vecteur2D(100, 100), 50, "red"); // Red circle
-        circle.draw(&visiteur);
-
-       Segment segment(Vecteur2D(200, 200), Vecteur2D(300, 300), "green"); // Green segment
-        segment.draw(&visiteur);
-
-        Triangle triangle(Vecteur2D(400, 400), Vecteur2D(450, 500), Vecteur2D(350, 450), "blue"); // Blue triangle
-        triangle.draw(&visiteur);
-
-        std::vector<Vecteur2D> points = {Vecteur2D(500, 600), Vecteur2D(850, 550), Vecteur2D(200, 500), Vecteur2D(550, 450)};
-        Polygone polygon(points, "black"); // Yellow polygon
-        polygon.draw(&visiteur);
-
-        std::cout << "All shapes drawn successfully." << std::endl;
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
-    return 0;
-}
 
 /*int main() {
     // Create shapes

@@ -15,20 +15,6 @@ Cercle::Cercle(const Vecteur2D& center, double radius, const string& color)
 }
 
 
-
-
-
-/*void Cercle::draw() const {
-    TCPClient client;
-    client.connect("127.0.0.1", 8080);
-
-    std::ostringstream request;
-    request << "DRAW CIRCLE " << center.x << " " << center.y << " " << radius << " " << color << "\n";
-    client.send(request.str());
-
-    client.disconnect();
-}*/
-
 double Cercle::calculateArea() const {
     return M_PI * radius * radius;
 }

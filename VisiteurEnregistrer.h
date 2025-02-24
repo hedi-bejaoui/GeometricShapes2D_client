@@ -5,7 +5,7 @@
 #ifndef VISITEURENREGISTRER_H
 #define VISITEURENREGISTRER_H
 
-//#include "TCPClient.h"
+
 #include "Triangle.h"
 #include "Polygone.h"
 #include "Groupe.h"

@@ -17,16 +17,7 @@ Vecteur2D Segment::getP2()const {
     return this->p2;
 }
 
-/*void Segment::draw() const {
-    TCPClient client;
-    client.connect("127.0.0.1", 8080);
 
-    std::ostringstream request;
-    request << "DRAW SEGMENT " << p1.x << " " << p1.y << " " << p2.x << " " << p2.y << " " << color << "\n";
-    client.send(request.str());
-
-    client.disconnect();
-}*/
 
 double Segment::calculateArea() const {
     return 0; // A segment has no area
@@ -62,8 +53,3 @@ void Segment::rotate(const Vecteur2D& center, double angle) {
     rotatePoint(p1);
     rotatePoint(p2);
 }
-
-/*void Segment::save(std::ostream& out) const {
-    out << "SEGMENT " << p1.x << " " << p1.y << " " << p2.x << " " << p2.y << " " << color << "\n";
-}
-*/

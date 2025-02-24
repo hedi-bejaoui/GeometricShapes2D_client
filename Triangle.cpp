@@ -27,19 +27,6 @@ Vecteur2D Triangle::getP3() const {
 }
 
 
-
-
-/*void Triangle::draw() const {
-    TCPClient client;
-    client.connect("127.0.0.1", 8080);
-
-    std::ostringstream request;
-    request << "DRAW TRIANGLE " << p1.x << " " << p1.y << " " << p2.x << " " << p2.y << " " << p3.x << " " << p3.y << " " << color << "\n";
-    client.send(request.str());
-
-    client.disconnect();
-}*/
-
 double Triangle::calculateArea() const {
     return 0.5 * abs((p2 - p1).det(p3 - p1));
 }
@@ -78,7 +65,3 @@ void Triangle::rotate(const Vecteur2D& center, double angle) {
     rotatePoint(p3);
 }
 
-/*void Triangle::save(std::ostream& out) const {
-    out << "TRIANGLE " << p1.x << " " << p1.y << " " << p2.x << " " << p2.y << " "
-        << p3.x << " " << p3.y << " " << color << "\n";
-}*/

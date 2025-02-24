@@ -28,7 +28,19 @@ add_executable(GeometricShapes2D
         ShapeFactory.h
         Visteur.h
         VisteurDessinerJAVA.h
-        VisiteurEnregistrer.h)
+        VisiteurEnregistrer.h
+        formeParserCOR.cpp
+        formeParserCOR.h
+        formeFactoryCOR.cpp
+        formeFactoryCOR.h
+        CercleParserCOR.cpp
+        CercleParserCOR.h
+        TriangleParserCOR.cpp
+        TriangleParserCOR.h
+        PolygoneParserCOR.cpp
+        PolygoneParserCOR.h
+        SegmentParserCOR.cpp
+        SegmentParserCOR.h)
 
 # Link Winsock library
 target_link_libraries(GeometricShapes2D PRIVATE ws2_32)

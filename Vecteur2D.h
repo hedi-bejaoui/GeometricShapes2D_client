@@ -79,7 +79,7 @@ public:
 
     operator string() const {
         ostringstream o;
-        o << "(" << x << ", " << y << ", color: " << color << ")" << endl;
+        o << "(" << x << ", " << y << ", color: " << color << ")" ;
         return o.str();
     }
 };

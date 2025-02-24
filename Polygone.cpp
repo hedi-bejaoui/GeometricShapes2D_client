@@ -14,20 +14,7 @@ Polygone::Polygone(const vector<Vecteur2D>& points, const string& color)
         throw invalid_argument("A polygon must have at least three points.");
 }
 
-/*void Polygone::draw() const {
-    TCPClient client;
-    client.connect("127.0.0.1", 8080);
 
-    std::ostringstream request;
-    request << "DRAW POLYGONE";
-    for (const auto& point : points) {
-        request << " " << point.x << " " << point.y;
-    }
-    request << " " << color << "\n";
-    client.send(request.str());
-
-    client.disconnect();
-}*/
 
 double Polygone::calculateArea() const {
     double area = 0;
@@ -73,11 +60,3 @@ void Polygone::rotate(const Vecteur2D& center, double angle) {
     }
 }
 
-/*void Polygone::save(std::ostream& out) const {
-    out << "POLYGONE " << points.size();
-    for (const auto& point : points) {
-        out << " (" << point.x << " " << point.y << ")";
-    }
-    out << " " << color << "\n";
-}
-*/
