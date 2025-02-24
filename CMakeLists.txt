@@ -27,7 +27,8 @@ add_executable(GeometricShapes2D
         WinsockSingleton.h
         ShapeFactory.h
         Visteur.h
-        VisteurDessinerJAVA.h)
+        VisteurDessinerJAVA.h
+        VisiteurEnregistrer.h)
 
 # Link Winsock library
 target_link_libraries(GeometricShapes2D PRIVATE ws2_32)

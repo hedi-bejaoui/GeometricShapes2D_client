@@ -22,7 +22,9 @@ public:
     void homothetie(const Vecteur2D& centerPoint, double scale) override;
     void rotate(const Vecteur2D& centerPoint, double angle) override;
 
-    void save(std::ostream &out) const override;
+    void save(const Visiteur *v) const override {
+        v->visit(*this);
+    }
 
 
 

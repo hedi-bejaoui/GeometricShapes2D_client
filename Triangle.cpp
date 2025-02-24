@@ -78,7 +78,7 @@ void Triangle::rotate(const Vecteur2D& center, double angle) {
     rotatePoint(p3);
 }
 
-void Triangle::save(std::ostream& out) const {
+/*void Triangle::save(std::ostream& out) const {
     out << "TRIANGLE " << p1.x << " " << p1.y << " " << p2.x << " " << p2.y << " "
         << p3.x << " " << p3.y << " " << color << "\n";
-}
+}*/

@@ -73,10 +73,11 @@ void Polygone::rotate(const Vecteur2D& center, double angle) {
     }
 }
 
-void Polygone::save(std::ostream& out) const {
+/*void Polygone::save(std::ostream& out) const {
     out << "POLYGONE " << points.size();
     for (const auto& point : points) {
         out << " (" << point.x << " " << point.y << ")";
     }
     out << " " << color << "\n";
 }
+*/

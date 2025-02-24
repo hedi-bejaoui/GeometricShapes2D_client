@@ -2,8 +2,8 @@
 // Created by bejaoui on 12/28/2024.
 //
 
-class ShapeFactory {
-public:
+class ShapeFactory {};
+/*public:
     static std::shared_ptr<Forme> load(std::istream& in) {
         std::string type;
         in >> type;
@@ -50,3 +50,4 @@ public:
         throw std::runtime_error("Unknown shape type: " + type);
     }
 };
+*/

@@ -63,6 +63,7 @@ void Segment::rotate(const Vecteur2D& center, double angle) {
     rotatePoint(p2);
 }
 
-void Segment::save(std::ostream& out) const {
+/*void Segment::save(std::ostream& out) const {
     out << "SEGMENT " << p1.x << " " << p1.y << " " << p2.x << " " << p2.y << " " << color << "\n";
 }
+*/

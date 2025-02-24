@@ -41,7 +41,7 @@ public:
 
     virtual void draw(const Visiteur *v) const = 0;
 
-    virtual void save(std::ostream& out) const = 0; // Polymorphic save method
+    virtual void save(const Visiteur *v) const = 0;
 };
 
 #endif // FORME_H

@@ -58,6 +58,7 @@ void Cercle::rotate(const Vecteur2D& centerPoint, double angle) {
     );
 }
 
-void Cercle::save(std::ostream& out) const {
+/*void Cercle::save(std::ostream& out) const {
     out << "CIRCLE " << center.x << " " << center.y << " " << radius << " " << color << "\n";
 }
+*/

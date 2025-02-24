@@ -11,6 +11,7 @@ class Segment;
 class Triangle;
 class Groupe;
 
+
 class Visiteur {
 public:
     virtual void visit(const Cercle &c) const = 0 ;

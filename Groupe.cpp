@@ -57,14 +57,14 @@ void Groupe::rotate(const Vecteur2D& center, double angle) {
 }
 
 
-void Groupe::save(std::ostream& out) const {
+/*void Groupe::save(std::ostream& out) const {
     out << "GROUP " << color << " [\n";
     for (const auto& forme : formes) {
         forme->save(out); // Delegate saving to child shapes
     }
     out << "]\n";
 }
-
+*/
 
 
 

@@ -54,7 +54,7 @@ class VisiteurDessinerJAVA : public Visiteur{
             client.disconnect();
         } catch (const std::exception& e) {
             std::cerr << "Erreur lors de l'envoi du polygone : " << e.what() << std::endl;
-            client.disconnect(); // Assurez-vous que la déconnexion est toujours appelée
+            client.disconnect();
         }
     }
 
@@ -72,11 +72,11 @@ class VisiteurDessinerJAVA : public Visiteur{
     }
 
     void visit(const Groupe &g) const override {
-       /* for (const auto& forme : g.getFormes()) {
-            forme->draw();
-        }*/
 
-        //todo
+        VisiteurDessinerJAVA monVisiteur;
+       for (const auto& forme : g.getFormes()) {
+            forme->draw(&monVisiteur);
+       }
     }
 
     void visit(const Segment &s) const override {

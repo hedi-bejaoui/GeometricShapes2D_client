@@ -22,12 +22,14 @@ public:
     void homothetie(const Vecteur2D& center, double scale) override;
     void rotate(const Vecteur2D& center, double angle) override;
 
-    void save(std::ostream &out) const override;
 
     double calculateArea() const override;
     string toString() const override;
 
     void draw(const Visiteur *v) const override {
+        v->visit(*this);
+    }
+    void save(const Visiteur *v) const override {
         v->visit(*this);
     }
 };
