@@ -34,11 +34,26 @@ public:
 
 
     void draw(const Visiteur *v) const override {
+        for (const auto& forme : formes) {
+            forme->draw(v);  // Dessiner chaque forme dans le groupe
+        }
+    }
+
+
+    void save(const Visiteur *v) const override {
+        v->visit(*this); // Sauvegarde le groupe lui-même si nécessaire
+        for (const auto& forme : formes) {
+            forme->save(v); // Sauvegarde chaque forme dans le groupe
+        }
+    }
+
+
+    /*void draw(const Visiteur *v) const override {
         v->visit(*this);
     }
     void save(const Visiteur *v) const override {
         v->visit(*this);
-    }
+    }*/
 };
 
 #endif // GROUPE_H

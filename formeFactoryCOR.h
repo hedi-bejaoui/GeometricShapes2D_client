@@ -10,6 +10,7 @@
 
 #include "CercleParserCOR.h"
 #include "formeParserCOR.h"
+#include "GroupeParserCOR.h"
 #include "PolygoneParserCOR.h"
 #include "SegmentParserCOR.h"
 #include "TriangleParserCOR.h"
@@ -29,17 +30,21 @@ public:
 
         cout << "Fichier ouvert avec succes : " << filename << endl;
 
-        //  Création de la chaîne de responsabilité
+        // Création de la chaîne de responsabilité
+        GroupeParserCOR groupeParser;
         CercleParserCOR cercleParser;
         TriangleParserCOR triangleParser;
         PolygoneParserCOR polygoneParser;
         SegmentParserCOR segmentParser;
 
-        //  Chaînage des parsers
+        // Chaînage des parsers
+        groupeParser.setNext(&cercleParser);
         cercleParser.setNext(&triangleParser);
         triangleParser.setNext(&polygoneParser);
         polygoneParser.setNext(&segmentParser);
-        formeParserCOR* firstParser = &cercleParser;
+
+        formeParserCOR* firstParser = &groupeParser;
+
 
         string ligne;
         while (getline(file, ligne)) {

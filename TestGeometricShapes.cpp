@@ -318,6 +318,17 @@ int main() {
             Polygone polygon(points, "yellow");
             polygon.save(&visiteur);
 
+            Groupe groupe("black");
+            groupe.addForme(make_shared<Cercle>(circle));
+            groupe.addForme(make_shared<Segment>(segment));
+            groupe.addForme(make_shared<Triangle>(triangle));
+            groupe.addForme(make_shared<Polygone>(polygon));
+
+            // Sauvegarde tout le groupe avec toutes ses formes :
+            groupe.save(&visiteur);
+
+
+
             // Lecture de forme dans des fichiers ( string vers class c ++ )
             cout << "************************************************************************************************************************************" << endl;
             vector<Forme*> formes = formeFactoryCOR::chargerDepuisFichier("../lecture/forme.txt");
@@ -338,7 +349,7 @@ int main() {
             cout << "************************************************************************************************************************************" << endl;
             VisiteurDessinerJAVA visiteur;
             // Create and draw shapes
-            Cercle circle(Vecteur2D(100, 100), 50, "red"); // Red circle
+           Cercle circle(Vecteur2D(100, 100), 50, "red"); // Red circle
             circle.draw(&visiteur);
 
             Segment segment(Vecteur2D(200, 200), Vecteur2D(300, 300), "green"); // Green segment
@@ -350,6 +361,17 @@ int main() {
             std::vector<Vecteur2D> points = {Vecteur2D(500, 600), Vecteur2D(850, 550), Vecteur2D(200, 500), Vecteur2D(550, 450)};
             Polygone polygon(points, "black"); // Yellow polygon
             polygon.draw(&visiteur);
+
+            // ou avec Formes
+            Groupe groupe("red");
+            groupe.addForme(make_shared<Cercle>(Vecteur2D(100, 100), 50, "red"));
+            groupe.addForme(make_shared<Segment>(Vecteur2D(200, 200), Vecteur2D(300, 300), "green"));
+            groupe.addForme(make_shared<Triangle>(Vecteur2D(400, 400), Vecteur2D(450, 500), Vecteur2D(350, 450), "blue"));
+            groupe.addForme(make_shared<Polygone>(points, "yellow"));
+
+            groupe.draw(&visiteur);
+
+
 
             std::cout << "All shapes drawn successfully." << std::endl;
         } catch (const std::exception& e) {

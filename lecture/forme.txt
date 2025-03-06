@@ -2,3 +2,9 @@ Cercle: center (100, 100, color: black), radius 50, color: red
 Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
 Triangle: (400, 400, color: black), (450, 500, color: black), (350, 450, color: black), color: blue
 Segment: (200, 200, color: black) to (300, 300, color: black), color: green
+Cercle: center (100, 100), color: red, radius 50, color: red
+Segment: (200, 200) to (300, 300), color: green
+Groupe: color black
+Cercle: center (400, 400), color: blue, radius 30, color: blue
+Segment: (500, 500) to (600, 600), color: yellow
+END_GROUPE

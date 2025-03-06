@@ -40,7 +40,9 @@ add_executable(GeometricShapes2D
         PolygoneParserCOR.cpp
         PolygoneParserCOR.h
         SegmentParserCOR.cpp
-        SegmentParserCOR.h)
+        SegmentParserCOR.h
+        GroupeParserCOR.cpp
+        GroupeParserCOR.h)
 
 # Link Winsock library
 target_link_libraries(GeometricShapes2D PRIVATE ws2_32)

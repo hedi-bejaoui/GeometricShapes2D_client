@@ -17,8 +17,6 @@ const string nomDossier = "../sauvegarde/";
 class VisiteurEnregistrer : public Visiteur{
 public:
 
-
-
     void visit(const Cercle &c) const override {
         const string filename = nomDossier + "cercles.txt"; // Nom du fichier où sauvegarder
 
