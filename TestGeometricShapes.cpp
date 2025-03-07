@@ -348,7 +348,7 @@ int main() {
             cout << "************************************************************************************************************************************" << endl;
             VisiteurDessinerJAVA visiteur;
             // Create and draw shapes
-            Cercle circle(Vecteur2D(100, 100), 50, "red"); // Red circle
+            /*Cercle circle(Vecteur2D(100, 100), 50, "red"); // Red circle
             circle.draw(&visiteur);
 
             Segment segment(Vecteur2D(200, 200), Vecteur2D(300, 300), "green"); // Green segment
@@ -356,10 +356,10 @@ int main() {
 
             Triangle triangle(Vecteur2D(400, 400), Vecteur2D(450, 500), Vecteur2D(350, 450), "blue"); // Blue triangle
             triangle.draw(&visiteur);
-
+*/
             std::vector<Vecteur2D> points = {Vecteur2D(500, 600), Vecteur2D(850, 550), Vecteur2D(200, 500), Vecteur2D(550, 450)};
-            Polygone polygon(points, "yellow"); // Yellow polygon
-            polygon.draw(&visiteur);
+          //  Polygone polygon(points, "yellow"); // Yellow polygon
+           // polygon.draw(&visiteur);
 
             // ou avec Formes
             Groupe groupe("red");

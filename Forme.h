@@ -70,6 +70,11 @@ public:
      */
     const string& getColor() const;
 
+      /**
+      * @brief changes the color of the shape.
+      * @param color The color of the shape
+      */
+    void setColor(const string& color);
     /**
      * @brief Sets the parent group for this shape.
      * @param group Pointer to the Groupe that this shape will belong to.

@@ -9,6 +9,12 @@
 Forme::Forme(const string& color) : color(Vecteur2D::validateColor(color)), parentGroup(nullptr) {}
 Forme::~Forme() {}
 
+
+void Forme::setColor(const string& color) {
+    this->color = Vecteur2D::validateColor(color);
+}
+
+
 const string& Forme::getColor() const {
     return color;
 }

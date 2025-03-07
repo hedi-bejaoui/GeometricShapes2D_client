@@ -13,6 +13,7 @@ void Groupe::addForme(const shared_ptr<Forme>& forme) {
         throw logic_error("This form already belongs to another group.");
     }
     forme->setParentGroup(this);
+    forme->setColor(this->getColor());
     formes.push_back(forme);
 }
 

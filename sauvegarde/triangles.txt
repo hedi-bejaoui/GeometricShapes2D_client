@@ -55,3 +55,7 @@ Triangle: (400, 400, color: black), (450, 500, color: black), (350, 450, color: 
 Triangle: (400, 400, color: black), (450, 500, color: black), (350, 450, color: black), color: blue
 Triangle: (400, 400, color: black), (450, 500, color: black), (350, 450, color: black), color: blue
 Triangle: (400, 400, color: black), (450, 500, color: black), (350, 450, color: black), color: black
+Triangle: (400, 400, color: black), (450, 500, color: black), (350, 450, color: black), color: blue
+Triangle: (400, 400, color: black), (450, 500, color: black), (350, 450, color: black), color: black
+Triangle: (400, 400, color: black), (450, 500, color: black), (350, 450, color: black), color: blue
+Triangle: (400, 400, color: black), (450, 500, color: black), (350, 450, color: black), color: black
