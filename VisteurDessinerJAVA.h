@@ -47,9 +47,8 @@ class VisiteurDessinerJAVA : public Visiteur {
                 << c.center.x << " "
                 << c.center.y << " "
                 << c.radius << " "
-                << c.center.color << "\n";
+                << c.getColor() << "\n";
         client.send(request.str());
-
         client.disconnect();
     }
 

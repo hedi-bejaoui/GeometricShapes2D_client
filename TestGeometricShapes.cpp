@@ -363,7 +363,7 @@ int main() {
 
             // ou avec Formes
             Groupe groupe("red");
-            groupe.addForme(make_shared<Cercle>(Vecteur2D(100, 100), 50, "red"));
+            groupe.addForme(make_shared<Cercle>(Vecteur2D(100, 100), 50, "blue"));
             groupe.addForme(make_shared<Segment>(Vecteur2D(200, 200), Vecteur2D(300, 300), "green"));
             groupe.addForme(make_shared<Triangle>(Vecteur2D(400, 400), Vecteur2D(450, 500), Vecteur2D(350, 450), "blue"));
             groupe.addForme(make_shared<Polygone>(points, "yellow"));
