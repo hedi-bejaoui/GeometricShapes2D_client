@@ -16,7 +16,6 @@
 #include <fstream>
 
 #include "formeFactoryCOR.h"
-#include "ShapeFactory.h"
 #include "VisiteurEnregistrer.h"
 #include "VisteurDessinerJAVA.h"
 
@@ -331,12 +330,12 @@ int main() {
 
             // Lecture de forme dans des fichiers ( string vers class c ++ )
             cout << "************************************************************************************************************************************" << endl;
-            vector<Forme*> formes = formeFactoryCOR::chargerDepuisFichier("../lecture/forme.txt");
+            /*vector<Forme*> formes = formeFactoryCOR::chargerDepuisFichier("../lecture/forme.txt");
 
             for (Forme* forme : formes) {
                 cout << "Forme chargée: " << forme->toString() << endl;
                 delete forme; // Nettoyage mémoire
-            }
+            }*/
 
         } catch (const std::exception& e) {
             std::cout << "c'est problématique" << std::endl;

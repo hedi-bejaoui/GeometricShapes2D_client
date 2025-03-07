@@ -25,7 +25,6 @@ add_executable(GeometricShapes2D
         Rotation.cpp
         TCPClient.h
         WinsockSingleton.h
-        ShapeFactory.h
         Visteur.h
         VisteurDessinerJAVA.h
         VisiteurEnregistrer.h

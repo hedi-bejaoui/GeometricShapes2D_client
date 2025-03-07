@@ -15,3 +15,13 @@ Cercle: center (100, 100, color: black), radius 50, color: red
 Cercle: center (100, 100, color: black), radius 50, color: red
 Cercle: center (100, 100, color: black), radius 50, color: red
 Cercle: center (100, 100, color: black), radius 50, color: red
+Cercle: center (100, 100, color: black), radius 50, color: red
+Cercle: center (100, 100, color: black), radius 50, color: red
+Cercle: center (100, 100, color: black), radius 50, color: red
+Cercle: center (100, 100, color: black), radius 50, color: red
+Cercle: center (100, 100, color: black), radius 50, color: red
+Cercle: center (100, 100, color: black), radius 50, color: red
+Cercle: center (100, 100, color: black), radius 50, color: red
+Cercle: center (100, 100, color: black), radius 50, color: red
+Cercle: center (100, 100, color: black), radius 50, color: red
+Cercle: center (100, 100, color: black), radius 50, color: red

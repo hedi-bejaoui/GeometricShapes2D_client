@@ -1,13 +1,18 @@
-//
-// Created by geffe on 24/02/2025.
-//
+/**
+ * @file FormeFactoryCOR.h
+ * @brief Declaration of the formeFactoryCOR class for loading shapes from a file.
+ *
+ * This file defines the formeFactoryCOR class that uses the Chain of Responsibility pattern
+ * to parse a file containing shape representations. It creates a chain of shape parsers and processes
+ * each line in the file to convert it into a Forme object.
+ */
 
 #ifndef FORMEFACTORYCOR_H
 #define FORMEFACTORYCOR_H
+
 #include <iostream>
 #include <fstream>
 #include <vector>
-
 #include "CercleParserCOR.h"
 #include "formeParserCOR.h"
 #include "GroupeParserCOR.h"
@@ -17,8 +22,25 @@
 
 using namespace std;
 
+/**
+ * @class formeFactoryCOR
+ * @brief Factory class for loading shapes using the Chain of Responsibility pattern.
+ *
+ * The formeFactoryCOR class provides a static method to load shapes from a text file. It builds a
+ * chain of shape parsers and processes each line in the file, converting recognized shape representations
+ * into Forme objects. Unrecognized lines are reported via console output.
+ */
 class formeFactoryCOR {
 public:
+    /**
+     * @brief Loads shapes from a specified file.
+     * @param filename The path to the file containing shape representations.
+     * @return A vector of pointers to Forme objects that have been successfully parsed.
+     *
+     * This method opens the file specified by @p filename, creates a chain of shape parsers, and processes
+     * each line of the file. If a line is successfully parsed into a Forme object, the object is added to the
+     * returned vector. If the file cannot be opened, an error message is printed and an empty vector is returned.
+     */
     static vector<Forme*> chargerDepuisFichier(const string& filename) {
         ifstream file(filename);
         vector<Forme*> formes;
@@ -45,7 +67,6 @@ public:
 
         formeParserCOR* firstParser = &groupeParser;
 
-
         string ligne;
         while (getline(file, ligne)) {
             cout << "Traitement de la ligne : " << ligne << endl;
@@ -68,6 +89,4 @@ public:
     }
 };
 
-
-
-#endif //FORMEFACTORYCOR_H
+#endif // FORMEFACTORYCOR_H

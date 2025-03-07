@@ -14,3 +14,13 @@ Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: bl
 Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
 Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
 Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
+Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
+Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
+Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
+Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
+Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
+Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
+Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
+Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
+Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
+Polygone: (500, 500, color: black) (550, 550, color: black) (600, 500, color: black) (550, 450, color: black) , color: yellow
