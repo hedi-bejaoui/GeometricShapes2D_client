@@ -19,6 +19,7 @@
 #include "PolygoneParserCOR.h"
 #include "SegmentParserCOR.h"
 #include "TriangleParserCOR.h"
+#include "InputStreamProvider.h"
 
 using namespace std;
 
@@ -43,6 +44,7 @@ public:
      */
     static vector<Forme*> chargerDepuisFichier(const string& filename) {
         ifstream file(filename);
+        currentInputStream = &file; // Set the global pointer to the file stream
         vector<Forme*> formes;
 
         if (!file) {

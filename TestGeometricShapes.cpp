@@ -330,12 +330,12 @@ int main() {
 
             // Lecture de forme dans des fichiers ( string vers class c ++ )
             cout << "************************************************************************************************************************************" << endl;
-            /*vector<Forme*> formes = formeFactoryCOR::chargerDepuisFichier("../lecture/forme.txt");
+            vector<Forme*> formes = formeFactoryCOR::chargerDepuisFichier("../lecture/forme.txt");
 
             for (Forme* forme : formes) {
                 cout << "Forme chargée: " << forme->toString() << endl;
                 delete forme; // Nettoyage mémoire
-            }*/
+            }
 
         } catch (const std::exception& e) {
             std::cout << "c'est problématique" << std::endl;
@@ -348,7 +348,7 @@ int main() {
             cout << "************************************************************************************************************************************" << endl;
             VisiteurDessinerJAVA visiteur;
             // Create and draw shapes
-           Cercle circle(Vecteur2D(100, 100), 50, "red"); // Red circle
+            Cercle circle(Vecteur2D(100, 100), 50, "red"); // Red circle
             circle.draw(&visiteur);
 
             Segment segment(Vecteur2D(200, 200), Vecteur2D(300, 300), "green"); // Green segment
@@ -358,7 +358,7 @@ int main() {
             triangle.draw(&visiteur);
 
             std::vector<Vecteur2D> points = {Vecteur2D(500, 600), Vecteur2D(850, 550), Vecteur2D(200, 500), Vecteur2D(550, 450)};
-            Polygone polygon(points, "black"); // Yellow polygon
+            Polygone polygon(points, "yellow"); // Yellow polygon
             polygon.draw(&visiteur);
 
             // ou avec Formes

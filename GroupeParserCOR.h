@@ -17,6 +17,7 @@
 
 #include "formeParserCOR.h"
 #include "Groupe.h"
+#include "InputStreamProvider.h"
 
 /**
  * @class GroupeParserCOR
@@ -58,7 +59,7 @@ public:
 
                 // Read shapes contained in the group.
                 std::string subLigne;
-                while (std::getline(std::cin, subLigne) && subLigne != "END_GROUPE") { // End of group indicated by "END_GROUPE"
+                while (std::getline(*currentInputStream, subLigne) && subLigne != "END_GROUPE") { // End of group indicated by "END_GROUPE"
                     Forme* forme = formeParserCOR::parse(subLigne); // Use the chain of parsers.
                     if (forme) {
                         groupe->addForme(std::shared_ptr<Forme>(forme));
